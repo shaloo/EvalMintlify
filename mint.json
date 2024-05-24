@@ -14,6 +14,14 @@
       "to": "#07C983"
     }
   },
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": false,
+    "raiseIssue": false
+  },
+  "search": {
+    "prompt": "Type here to search..."
+  },
   "topbarLinks": [
     {
       "name": "Support",
@@ -26,59 +34,82 @@
   },
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name": "SDK Reference",
+      "url": "sdk-reference"
+    },    
+    {
+      "name": "Docs @Partners",
+      "url": "partner-docs"
+    },
+    {
+      "name": "Community",
+      "url": "community"
     }
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "name": "Announcements",
+      "icon": "bullhorn",
+      "color": "#FF4E9F",
+      "url": "https://github.com/orgs/arcana-network/discussions/categories/announcements"
     },
     {
-      "name": "Community",
-      "icon": "discord",
-      "url": "https://discord.gg/6g7fQvEpdy"
+      "name": "Service Status",
+      "icon": "gauge-high",
+      "color": "#FF4E9F",
+      "url": "https://status-dev.arcana.network/"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
+      "color": "#FF4E9F",
       "url": "https://arcana.network/blog"
     }
   ],
   "navigation": [
     {
-      "group": "Products",
+      "group": "Overview",
       "pages": [
         "welcome",
-        "quickstart",
-        "development"
+        "aa"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Quick Start",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        {
+          "group": "Web",
+          "pages": [
+            "quickstart/wagmi-quick-start",
+            "quickstart/vanilla-web-apps-quick-start",
+            "quickstart/gasless-quick-start"
+          ]
+        },
+        {
+          "group": "Mobile",
+          "pages": [
+            "quickstart/flutter-quick-start",
+            "quickstart/react-native-quick-start"              ]
+        }             
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "SDK Reference",
       "pages": [
-        "api-reference/introduction"
+        "sdk-reference/introduction",
+        "sdk-reference/usage"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Docs @Partners",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "partner-docs/index"
+      ]
+    },
+    {
+      "group": "Community",
+      "pages": [
+        "community/index"
       ]
     }
   ],
