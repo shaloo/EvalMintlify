@@ -1,14 +1,15 @@
 {
-  "name": "Arcana Docs",
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Starter Kit",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#FF4E9F",
-    "light": "#FF4E9F",
-    "dark": "#1D2A31",
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373",
     "anchors": {
       "from": "#0D9373",
       "to": "#07C983"
@@ -17,12 +18,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:support@arcana.network"
+      "url": "mailto:hi@mintlify.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.arcana.network"
+    "url": "https://dashboard.mintlify.com"
   },
   "tabs": [
     {
@@ -38,20 +39,20 @@
     },
     {
       "name": "Community",
-      "icon": "discord",
-      "url": "https://discord.gg/6g7fQvEpdy"
+      "icon": "slack",
+      "url": "https://mintlify.com/community"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://arcana.network/blog"
+      "url": "https://mintlify.com/blog"
     }
   ],
   "navigation": [
     {
-      "group": "Products",
+      "group": "Get Started",
       "pages": [
-        "welcome",
+        "introduction",
         "quickstart",
         "development"
       ]
