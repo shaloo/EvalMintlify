@@ -3,4 +3,44 @@ title: 'Wagmi'
 description: 'Enable social login and blockchain transactions with embedded Arcana Wallet'
 ---
 
-TBD
+import {InlineCode, TxPkgAuthSDK,TxPkgAuthWagmiSDK} from '/snippets/text/arcana.mdx';
+
+import QuickStartPreReq from '/snippets/text/qs_prereq.mdx';
+import CodeAuthWagmiInstall from '/snippets/code/auth_wagmi_install.mdx';
+import CodeAuthImport from '/snippets/code/auth_import.mdx';
+import CodeAuthCreate from '/snippets/code/auth_create.mdx';
+import CodeAuthWagmiCreate from '/snippets/code/auth_wagmi_create.mdx';
+import CodeAuthWagmiConfig from '/snippets/code/auth_wagmi_config_pnp.mdx';
+
+## Prerequisites
+<QuickStartPreReq/>
+
+## Install
+
+<CodeAuthWagmiInstall/>
+
+<Warning>
+**Wagmi Compatibility**
+
+You need to install both <InlineCode>{TxPkgAuthSDK}</InlineCode> and <InlineCode>{TxPkgAuthWagmiSDK}</InlineCode> packages. Note the version compatibility:
+
+* For wagmi < 1.0.0 use @arcana/auth-wagmi@1.y.z
+* For wagmi >= 1.0.0, use @arcana/auth-wagmi@2.y.z
+* For wagmi >= 2.0.0, use @arcana/auth-wagmi@3.y.z
+</Warning>
+
+## Integrate
+
+Use the **client ID** assigned to your app at registration and create the `AuthProvider`.
+
+<CodeAuthCreate/>
+
+Then use the `AuthProvider` to create a new `ArcanaConnector`.
+
+<CodeAuthWagmiCreate/>
+
+Depending upon the version of the Wagmi library used in the app, configure the `ArcanaConnector` in the Wagmi setup.
+
+<CodeAuthWagmiConfig/>
+
+

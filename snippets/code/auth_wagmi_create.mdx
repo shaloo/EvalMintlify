@@ -1,0 +1,9 @@
+```js 
+
+import { newAuthProvider } from './utils/newArcanaAuth';
+import { ArcanaConnector } from "@arcana/auth-wagmi"
+
+const connector = () => {
+  return new ArcanaConnector({newAuthProvider,})
+};
+```

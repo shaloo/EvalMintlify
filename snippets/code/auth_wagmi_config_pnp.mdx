@@ -1,0 +1,127 @@
+<Tabs>
+  <Tab title="Wagmi v2.a.b">
+    ```js 
+    //
+    // For apps using Wagmi versions v2.a.b and auth-wagmi v3.x.y
+    //
+ 
+    import { http, createConfig } from 'wagmi'
+    import { mainnet, sepolia } from 'wagmi/chains'
+    import { coinbaseWallet, injected, walletConnect } from 'wagmi/connectors'
+    import { newAuthProvider } from './utils/newArcanaAuth';
+    import { ArcanaConnector } from "@arcana/auth-wagmi"
+
+    export const connector = () => {
+      return new ArcanaConnector({newAuthProvider,})
+    };
+
+    export const config = createConfig({
+      chains: [mainnet, sepolia],
+      connectors: [
+        injected(),
+        coinbaseWallet({ appName: 'Create Wagmi' }),
+        walletConnect({ projectId: import.meta.env.VITE_WC_PROJECT_ID }),
+        connector(),
+      ],
+      transports: {
+        [mainnet.id]: http(),
+        [sepolia.id]: http(),
+      },
+    })
+
+    declare module 'wagmi' {
+      interface Register {
+        config: typeof config
+      }
+    }
+    ...
+    ```
+  </Tab>
+  <Tab title="Wagmi v1.a.b">
+    ```js
+    //   
+    // For apps using Wagmi versions v1.a.b and auth-wagmi v2.x.y
+    //
+    import { configureChains, createConfig, WagmiConfig } from "wagmi";
+    import { publicProvider } from "wagmi/providers/public";
+    import { ArcanaConnector } from "@arcana/auth-wagmi";
+    import { polygon, polygonMumbai } from "wagmi/chains";
+    import { newAuthProvider } from "./utils/newArcanaAuth";
+    import { useAccount, useConnect, useDisconnect, useBalance } from 'wagmi'
+    import "../styles/globals.css";
+
+    const { chains, provider, webSocketProvider } = configureChains(
+      [mainnet, polygon, polygonMumbai],
+      [publicProvider()],
+      { targetQuorum: 1 }
+    );
+
+    export const connector = (chains: Chain[]) => {
+      return new ArcanaConnector({
+        chains,
+        options: {
+          auth: newAuthProvider(),
+        },
+      });
+    };
+
+    const { chains, publicClient } = configureChains(
+      [polygon, polygonMumbai],
+      [publicProvider()]
+    );
+
+    export const wagmiEntity = createConfig({
+      autoConnect: true,
+      connectors: [connector(chains)],
+      publicClient,
+    });
+    ...
+    ```
+  </Tab>
+  <Tab title="Wagmi v0.a.b">
+    ```js
+    //
+    // For apps using Wagmi versions  v0.a.b and auth-wagmi  v1.x.y
+    //
+    import { WagmiConfig, configureChains, createClient, Chain } from "wagmi";
+    import { goerli, mainnet, polygon, polygonMumbai } from "wagmi/chains";
+    import { InjectedConnector } from "wagmi/connectors/injected";
+    import { publicProvider } from "wagmi/providers/public";
+    import { ArcanaConnector } from "@arcana/auth-wagmi";
+    import { newAuthProvider } from "../utils/newArcanaAuth";
+
+    import "../styles/globals.css";
+    import type { AppProps } from "next/app";
+
+    const { chains, provider, webSocketProvider } = configureChains(
+      [mainnet, goerli, polygon, polygonMumbai],
+      [publicProvider()],
+      { targetQuorum: 1 }
+    );
+
+    const connectors = [
+      new ArcanaConnector({
+        chains,
+        options: {
+          auth: newAuthProvider(),
+        },
+      }),
+      new InjectedConnector({
+        chains,
+        options: {
+          name: "Browser Wallet",
+          shimDisconnect: true,
+        },
+      }),
+    ];
+
+    const wagmiEntity = createClient({
+      autoConnect: true,
+      connectors,
+      provider,
+      webSocketProvider,
+    });
+    ...
+    ```
+  </Tab>
+</Tabs>
