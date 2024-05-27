@@ -1,0 +1,5 @@
+Arcana Auth allows developers to choose built-in plug and play login UI or create a custom login UI to onboard users.
+
+When the built-in login UI option (default) is chosen, the `connect` method of the SDK is used in the app to pop up the login UI. It displays all the configured authentication providers to the user as login options including passwordless login.
+
+In the case of custom login UI, developers must create a custom login UI and display the configured authentication providers. In response to customer's login choice, developers must plug in the code to call `loginWithSocial` method of the SDK with the selected authentication provider or `loginWithOtp` for passwordless login. 

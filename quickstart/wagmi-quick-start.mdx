@@ -10,7 +10,9 @@ import CodeAuthWagmiInstall from '/snippets/code/auth_wagmi_install.mdx';
 import CodeAuthImport from '/snippets/code/auth_import.mdx';
 import CodeAuthCreate from '/snippets/code/auth_create.mdx';
 import CodeAuthWagmiCreate from '/snippets/code/auth_wagmi_create.mdx';
-import CodeAuthWagmiConfig from '/snippets/code/auth_wagmi_config_pnp.mdx';
+import CodeAuthWagmiConfig from '/snippets/code/auth_wagmi_config.mdx';
+import CodeAuthWagmiOnboardPnp from '/snippets/code/auth_wagmi_onboard.mdx';
+import TxSignBTxn from '/snippets/text/qs_sign_tx.mdx';
 
 ## Prerequisites
 <QuickStartPreReq/>
@@ -39,8 +41,28 @@ Then use the `AuthProvider` to create a new `ArcanaConnector`.
 
 <CodeAuthWagmiCreate/>
 
-Depending upon the version of the Wagmi library used in the app, configure the `ArcanaConnector` in the Wagmi setup.
+Next, depending upon the version of the Wagmi library used in the app, configure the `ArcanaConnector` in the Wagmi setup.
 
 <CodeAuthWagmiConfig/>
+
+Onboard user via the built-in plug and play login UI by using the Wagmi component in the App.
+
+<CodeAuthWagmiOnboardPnp/>
+
+<Info>
+**Custom Login UI**
+
+You can onboard users through a [custom login UI](/core_docs/concepts/custom_login_ui) instead of the built-in plug-and-play one. See [here](/auth/custom_login_ui) for details.
+
+</Info>
+
+## Sign Transactions
+
+<TxSignBTxn/>
+
+## See Also
+
+TBD
+
 
 

@@ -1,0 +1,70 @@
+
+<Tabs>
+  <Tab title="Single Provider">
+    ```js 
+
+    import { AuthProvider } from '@arcana/auth';
+    import { ArcanaConnector } from "@arcana/auth-wagmi"
+
+    const newAuthProvider = new AuthProvider("xar_test_nnniy134nnnnn") //registered app client id 
+    export const connector = (chains: Chain[]) => {
+      return new ArcanaConnector({
+        chains,
+        options: {
+          auth: newAuthProvider,
+          login:  {
+            provider: 'google', // Use appropriate 'provider' string
+          }            
+        },
+      });
+    };
+
+    // For passwordless, specify the email id
+
+    export const connector = (chains: Chain[]) => {
+      return new ArcanaConnector({
+        chains,
+        options: {
+          auth: newAuthProvider,
+          login:  {
+            provider: 'passwordless',
+            email: 'john.doe@email.com'
+          }            
+        },
+      });
+    };
+    ```
+  </Tab>
+  <Tab title="Multiple Providers">
+    ```js 
+
+    import { AuthProvider } from '@arcana/auth';
+    import { ArcanaConnector } from "@arcana/auth-wagmi"
+
+    const newAuthProvider = new AuthProvider("xar_test_nnniy134nnnnn") //registered app client id 
+    export const connector = (chains: Chain[]) => {
+      return new ArcanaConnector({
+        chains,
+        options: {
+          auth: newAuthProvider,           
+        },
+      });
+    };
+
+    ...
+
+    // Once user selects a provider, use setLogin
+
+    connector.setLogin({
+      provider: 'google' // Use appropriate 'provider' strings
+    })
+
+    // For passwordless, specify the email id too
+
+    connector.setLogin({
+      provider: 'passwordless',
+      email: 'john.doe@email.com'
+    })
+    ```
+  </Tab>
+</Tabs>

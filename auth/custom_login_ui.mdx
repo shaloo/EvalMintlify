@@ -1,0 +1,63 @@
+---
+title: 'Custom Login UI'
+description: 'Onboard users via custom login UI'
+---
+
+import QuickStartPreReq from '/snippets/text/qs_prereq.mdx';
+import CodeAuthWagmiInstall from '/snippets/code/auth_wagmi_install.mdx';
+
+import CodeAuthWagmiCreateCustom from '/snippets/code/auth_wagmi_create_custom.mdx';
+import CodeAuthWagmiOnboardPnp from '/snippets/code/auth_wagmi_onboard.mdx';
+import CodeAuthWagmiConfig from '/snippets/code/auth_wagmi_config.mdx';
+
+Let's enable social login in a Wagmi app, onboard users via custom login UI and enable them to sign blockchain transactions through the embedded Arcana wallet. 
+
+<Tabs>
+    <Tab title="Wagmi App">
+        <Note>
+            Developers must decide on built-in login UI or custom login UI selection while registering the app. It is a one-time setting and cannot be changed later.
+            <img alt="Custom Login UI Setting" src="/images/custom_login_ui_setup.gif" width="45%/" />
+        </Note>
+
+        ## Prerequisites
+
+        <QuickStartPreReq/>
+
+        ## Install
+
+        <CodeAuthWagmiInstall/>
+
+        ## Integrate
+
+        <CodeAuthWagmiConfig/>
+
+        Next, add code to onboard users via custom login UI.
+
+        If multiple authentication providers are set up for the app, create `ArcanaConnector` without specifying a provider type. Later, in response to the user choosing a login option, call the `setLogin` method with the chosen provider. 
+
+        Otherwise, if a single login option is configured for the app,  specify the appropriate provider right away during `ArcanaConnector` creation step itself.
+
+        <CodeAuthWagmiCreateCustom/>
+
+        Use the newly instantiated and configured `ArcanaConnector` to set up Wagmi: 
+
+        <CodeAuthWagmiOnboardPnp/>
+
+    </Tab>    
+    <Tab title="Some App">
+        Testing 123
+    </Tab>    
+    <Tab title="Other App">
+        Testing 123
+    </Tab>
+</Tabs>
+
+That's all! <Icon icon="clipboard-check" iconType="solid" />
+
+## What's Next?
+
+After integrating and onboarding users in the Web3 app, you can optionally add code to enable Web3 wallet operations within the authenticated user's context.
+
+## See Also
+
+References TBD
